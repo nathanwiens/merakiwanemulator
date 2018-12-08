@@ -4,7 +4,7 @@ This script will configure a Raspberry Pi as a WAN emulator, running a Meraki th
 
 This script assumes the following:
 1. You will be using eth0 and eth1 as the bridged interfaces for the WAN Emulator. You will need a USB Ethernet Adapter compatible with the Raspberry Pi
-2. You will be using wlan0 for access to the web interface, and that wlan0 is already configured.
+2. You will be using wlan0 for access to the web interface, and wlan0 is already configured.
 3. The Raspberry Pi has apt installed
 
 This script will:
