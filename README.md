@@ -9,7 +9,7 @@ This script assumes the following:
 
 To install, simply run this command:
 
-wget https://raw.githubusercontent.com/nathanwiens/merakiwanemulator/master/meraki_wan_emulator_install.sh && chmod a+x meraki_wan_emulator_install.sh && sudo ./meraki_wan_emulator_install.sh
+`wget https://raw.githubusercontent.com/nathanwiens/merakiwanemulator/master/meraki_wan_emulator_install.sh && chmod a+x meraki_wan_emulator_install.sh && sudo ./meraki_wan_emulator_install.sh`
 
 You can either automatically cycle the WAN Emulation automatically (via cron job), or set it manually via the web interface.
 Thresholds for the cron job can be modified by editing the scripts in /var/www/html/cron after installation.
