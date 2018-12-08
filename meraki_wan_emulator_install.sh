@@ -1,6 +1,6 @@
 #!/bin/bash
 ###
-### Created by Nathan Wiens - nathan@wiens.co
+### Created by Nathan Wiens: https://github.com/nathanwiens and Shiyue Cheng: https://github.com/shiyuechengineer
 ### December 7, 2018
 ###
 
