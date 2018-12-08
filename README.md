@@ -1,4 +1,4 @@
-# Meraki Wan Emulator
+# Meraki WAN Emulator
 
 This script will configure a Raspberry Pi as a WAN emulator, running a Meraki themed web interface for configuration.
 
