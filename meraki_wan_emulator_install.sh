@@ -41,7 +41,7 @@ grep -q -F "accesslog.filename = $LOGFILE" /etc/lighttpd/lighttpd.conf || echo "
 echo ""
 echo "INSTALLING WEB FILES..."
 echo ""
-wget https://github.com/nathannwiens/merakiwanemulator/meraki_wan_emulator_files.zip
+wget https://raw.githubusercontent.com/nathanwiens/merakiwanemulator/master/meraki_wan_emulator_files.zip
 FILE="./meraki_wan_emulator_files.zip"
 if [ -f $FILE ]; then
 	tar -zxvf $FILE -C /var/www/
