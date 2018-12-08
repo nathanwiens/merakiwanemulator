@@ -109,5 +109,6 @@ done
 #Installation Complete
 echo ""
 echo "INSTALLATION COMPLETE."
-echo "Please visit this IP address in a web browser to continue."
+echo "Please reboot to finish the bridge configuration."
+echo "Visit this IP address in a web browser to continue."
 echo ""
