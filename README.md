@@ -8,11 +8,11 @@ This script assumes the following:
 3. The Raspberry Pi has apt installed
 
 This script will:
-* Install iproutes2, which contains **tc** for adding delay, loss, jitter.
+* Install iproute2, which contains **tc** for adding delay, loss, jitter.
 * Install lighttpd as the web server, and enable access logging
 * Grab the latest files from GitHub and extract them to /var/www/html
 * Configure a network bridge between eth0 and eth1
-* (Optionally) set cron jobs to alernate between clean and degraded performance on the network bridge
+* (Optionally) set cron jobs to alternate between clean and degraded performance on the network bridge
 
 To install, simply run this command:
 
