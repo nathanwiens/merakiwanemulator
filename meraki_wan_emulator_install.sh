@@ -4,7 +4,7 @@
 ### December 7, 2018
 ###
 
-LOGFILE='"/home/pi/sdwanlog.txt"'
+LOGFILE="/home/pi/sdwanlog.txt"
 
 #Check for root
 if (( $EUID != 0 )); then
@@ -17,6 +17,7 @@ echo ""
 echo "THIS SCRIPT ASSUMES YOU WILL USE WLAN0 FOR MANAGEMENT AND THAT WLAN0 IS ALREADY CONFIGURED"
 echo "ETH0/ETH1 MANAGEMENT ACCESS TO THIS DEVICE WILL NOT BE POSSIBLE AFTER INSTALLATION"
 echo ""
+read -n 1 -s -r -p "Press any key to continue..."
 
 #Install TC for WAN Emulation
 echo ""
@@ -41,7 +42,7 @@ grep -q -F "accesslog.filename = $LOGFILE" /etc/lighttpd/lighttpd.conf || echo "
 echo ""
 echo "INSTALLING WEB FILES..."
 echo ""
-wget https://raw.githubusercontent.com/nathanwiens/merakiwanemulator/master/meraki_wan_emulator_files.zip
+wget https://github.com/nathanwiens/merakiwanemulator/blob/master/meraki_wan_emulator_files.tar.gz?raw=true
 FILE="./meraki_wan_emulator_files.zip"
 if [ -f $FILE ]; then
 	tar -zxvf $FILE -C /var/www/
@@ -73,7 +74,7 @@ echo ""
 while true; do
     read -p "Would you like automatic performance adjustments? " yn
     
-	if  [ "$yn" == "Y" ] || [ "$yn" == "y" ] || [ "$yn" == "Yes" ] || [ "$yn" == "yes" ] || [ "$yn" == "YES" ]]; then
+	if  [ "$yn" == "Y" ] || [ "$yn" == "y" ] || [ "$yn" == "Yes" ] || [ "$yn" == "yes" ] || [ "$yn" == "YES" ]; then
 	  while true; do
 		  read -p "How long should each interval be (in minutes) (2-30)? " interval
 		  if ! [[ "$interval" =~ ^[0-9]+$ ]]; then
@@ -93,13 +94,13 @@ while true; do
 			BAD="$[interval/2]"
 			crontab -l | { cat; echo "*/$GOOD * * * * bash /var/www/html/cron/perf-good.sh >> /home/pi/sdwanlog.txt"; } | crontab -
 			crontab -l | { cat; echo "*/$BAD * * * * bash /var/www/html/cron/perf-bad.sh >> /home/pi/sdwanlog.txt"; } | crontab -
-			exit 1
+			break
 		  fi
 	  done
-	  exit 1
+	  break
 	elif [ "$yn" == "N" ] || [ "$yn" == "n" ] || [ "$yn" == "No" ] || [ "$yn" == "no" ] || [ "$yn" == "NO" ]; then
 	  echo "Skipping..."
-	  exit 1
+	  break
 	else
 	  echo "Please answer yes or no."
 	fi
