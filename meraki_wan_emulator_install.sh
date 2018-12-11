@@ -21,10 +21,10 @@ read -n 1 -s -r -p "Press any key to continue..."
 
 #Install TC for WAN Emulation
 echo ""
-echo "INSTALLING TC FOR WAN EMULATION..."
+echo "INSTALLING TC AND BRIDGE-UTILS FOR WAN EMULATION..."
 echo ""
 apt-get update
-apt-get install iproute2 -y
+apt-get install iproute2 bridge-utils -y
 
 #Install HTTP server
 echo ""
@@ -42,8 +42,8 @@ grep -q -F "accesslog.filename = $LOGFILE" /etc/lighttpd/lighttpd.conf || echo "
 echo ""
 echo "INSTALLING WEB FILES..."
 echo ""
-wget https://github.com/nathanwiens/merakiwanemulator/blob/master/meraki_wan_emulator_files.tar.gz?raw=true
-FILE="./meraki_wan_emulator_files.zip"
+wget https://raw.githubusercontent.com/nathanwiens/merakiwanemulator/master/meraki_wan_emulator_files.tar.gz
+FILE="./meraki_wan_emulator_files.tar.gz"
 if [ -f $FILE ]; then
 	tar -zxvf $FILE -C /var/www/
 	touch $LOGFILE
