@@ -32,12 +32,6 @@ echo "INSTALLING HTTP SERVER..."
 echo ""
 apt-get install lighttpd -y
 
-#Adding logging to lighttpd
-echo ""
-echo "ADDING LOGGING TO HTTP SERVER..."
-echo ""
-grep -q -F "accesslog.filename = $LOGFILE" /etc/lighttpd/lighttpd.conf || echo "accesslog.filename = $LOGFILE" >> /etc/lighttpd/lighttpd.conf
-
 #Install web files
 echo ""
 echo "INSTALLING WEB FILES..."
